@@ -1,0 +1,39 @@
+Q10-ssume a student is having 8 lectures on Monday of different courses listed as JAVA, Python, DBMS and DataStructures. Find out how many times JAVA lecture is repeated on Monday. Constraints: 1. Size of the array should be 8
+Output: JAVA lecture is repeating 3 times
+Sample Case 1: Input: Total 8 lectures on Monday JAVA JAVA DataStructures DBMS JAVA
+JAVA Python DataStructures Output: JAVA lecture is repeating 4 times
+Sample Case 2: Input: Total 8 lectures on Monday JAVA JAVA DataStructures DBMS JAVA
+JAVA Python JAVA Output: JAVA lecture is repeating 5 times
+Sample Case 3: Input: Total 8 lectures on Monday Python Python DataStructures DBMS
+Python Python DBMS Python Output: No JAVA Lecture
+Ans 10-#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main()
+{
+/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+string arr[13];
+for(int i =0;i<13;i++)
+{
+cin>>arr[i];
+}
+int count = 0;
+for(int j=0;j<13;j++)
+{
+if(arr[j]=="JAVA")
+{
+count++;
+}
+}
+if(count!=0)
+{
+cout<<"JAVA lecture is repeating "<<count<<" times";}
+else
+{
+cout<<"No JAVA Lecture";
+}
+return 0;
+}
