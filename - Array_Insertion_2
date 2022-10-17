@@ -1,0 +1,47 @@
+Q9-Consider a physical trainer is arranging the students for physical training in a school. There
+are N students standing in a row for physical training. He wants to insert a student with
+average height between the two students who are having odd height standing in
+consecutive. Write a program for a physical trainer so that he can get the desired sequence
+of students. Example: if the 5 students are having values: 3 6 5 9 7 then 5 and 9 are the students with
+odd height so the student with height 7 (average of 5 and 9) should be inserted between 5
+and 9. Similarly, 9 and 7 are the 2 students with odd heights so student with height 8 should
+be inserted between 9 and 7. Output: 3 6 7 9 8 7
+Ans 9-#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main() {
+int n,average;
+int valid = 1;
+cin>>n;
+int arr[100];
+for(int i=0;i<n;i++){
+cin>>arr[i];
+}
+for(int i=0;i<n;i++){
+if(arr[i] == 0){
+valid = 0;
+}
+}
+if(n==1 || valid == 0){
+cout<<"Invalid Input";
+return 0;
+}
+for(int i=1;i<n;i++){
+if(arr[i-1]%2!=0 && arr[i]%2!=0){
+average = (arr[i-1]+arr[i])/2;
+for(int j=n-1;j>=i;j--){
+arr[j+1] = arr[j];
+}
+arr[i] = average;
+i++;
+n++;
+}
+}
+for(int i=0;i<n;i++){
+cout<<arr[i]<<" ";
+}
+return 0;
+}
