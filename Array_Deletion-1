@@ -1,0 +1,39 @@
+Q2-During the get together party, Liza asked all her friends to play a game where all the N
+friends have been asked to arrange themselves in a row and assigned some unique number. As per the rule of the game, Liza will show a number and the friend with that number needs
+to get out of the row and the vacant space should be occupied by all the friends on the right
+side such that the sequence is not disturbed. 
+Example: If there are 5 friends with the numbers 4, 8, 3, 6, 2 and Liza has shown the number 8 then
+the remaining friends should have the numbers: 4, 3, 6, and 2.
+Ans2-#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main()
+{
+/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+int n;
+cin>>n;
+int arr[n];
+for(int i=0;i<n;i++)
+{
+cin>>arr[i];
+}
+int n_dlt;
+cin>>n_dlt;
+for(int i=0; i<n; i++)
+{
+if(arr[i]==n_dlt)
+{
+n=n-1;
+for(int j=i; j<n; j++)
+{arr[j] = arr[j+1];}
+}
+}
+for(int j=0;j<n;j++)
+{
+cout<<arr[j]<<" ";
+}
+return 0;
+}
