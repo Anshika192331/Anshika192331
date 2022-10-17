@@ -1,0 +1,35 @@
+Q5-Today is such a beautiful evening after heavy rainfall and kids decided to play in playground, then at the same moment they are deligthed to see the colors of Rainbow in the sky. They
+observe seven colors like Violet, Indigo,Blue,Green,Yellow,Orange,Red i.e
+'V','I','B','G','Y','O','R'.Now your task is to remove a color which is mentioned above as input
+and display the remaining colors of Rainbow, if the color which you want to delete that is
+not comes under VIBGYOR then display message as "Color not available".
+Ans 5-#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main()
+{
+char arr[7]={'V','I','B','G','Y','O','R'},elem;
+int tot=7, i, j, found=0;
+cin>>elem;
+for(i=0; i<tot; i++)
+{
+if(arr[i]==elem)
+{
+for(j=i; j<(tot-1); j++)
+arr[j] = arr[j+1];
+found++;
+i--;
+tot--;
+}
+}
+if(found==0)
+cout<<"Color not available";
+else
+for(i=0; i<tot; i++)
+cout<<arr[i]<<"";
+cout<<endl;
+return 0;
+}
