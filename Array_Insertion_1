@@ -1,0 +1,46 @@
+Q3-A task is assigned to some surveyors to store temparature in an array daily for 8 days. An array for storing temperature is used by the surveyor but they forget to insert one
+element at some positions. Index 0 1 2 3 4 5 6 7 Temp. 30 40 35 25 20 10 23
+If they insert 15 at index 4 then the array looks like:
+Index 0 1 2 3 4 5 6 7
+Temparature 30 40 35 25 15 20 10 23
+So, you decided to create a function to insert the temperature at any given position in an
+array so, that if insertion is required then they can insert it.
+Ans 3-#include<iostream>
+using namespace std;
+int main() {
+char str[100],c;
+int x[100],n=0,i=0,temp=0,t,j=0;
+cin.getline(str,100);
+while(str[i]!='\0')
+{
+if(str[i]==' ')
+{
+x[j]=temp;
+temp=0;
+j=j+1;
+}
+else
+{
+c=str[i];
+t=(int(c)-48);
+temp=temp*10+t;
+}
+i+=1;
+}
+x[j]=temp;
+j=j+1;
+cin>>n;
+cin>>temp;
+if(n<0||n>j)
+cout<<"Invalid Position";
+else
+{
+for(i=j;i>n;i--)
+x[i]=x[i-1];
+x[i]=temp;
+for(i=0;i<j;i++)
+cout<<x[i]<<",";
+cout<<x[j];
+}
+return 0;
+}
