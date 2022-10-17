@@ -1,0 +1,37 @@
+Q8-Let us assume that a child went to a shop to purchase N BROWN chocolates and while
+packing chocolates shopkeeper might put M white chocolate instead of brown chocolate. Find out the location of white chocolate in the box and return the location. (index of array
+begins from 0). In case if there is no white chocolate then print -1.Write a program for the
+same and implement all test cases.
+Ans 8-#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main() {
+int n,m=0;
+cin>>n;
+char arr[n];
+for(int i = 0 ; i < n ; i ++)
+{
+cin>>arr[i];
+}
+for(int i = 0 ; i < n ; i ++)
+{
+if(arr[i]=='W')
+{
+cout<<i<<" ";
+m=m+1;
+}
+else
+{
+continue;
+}
+}
+if(m==0)
+{
+cout<<-1;
+}
+cout<<endl<<m;
+return 0;
+}
