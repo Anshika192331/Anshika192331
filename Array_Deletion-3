@@ -1,0 +1,58 @@
+Q-Lewis is working on a game designing project called as Ball Blast and he is facing issue in
+implementing the logic for the same. There are N number of balls having a number written
+on each ball. All the balls are arranged in a row and as per the rules of the game, if there are
+3 balls in a row having ODD number on them then the first ball of the set will be removed. 
+The same process is to be repeated for all the balls from left to right. At the end of the game,
+the numbers on the remaining ball is to be printed.
+Ans-#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int n,*ae;
+void del(int temp)
+{
+int i;
+for(i = temp;i<n;i++)
+{
+ae[i] = ae[i+1];
+}
+}
+void check()
+{
+bool key = false;
+int temp,i;
+for(i = 0;i<n-2;i++)
+{
+if(ae[i] % 2 != 0 && ae[i+1] % 2 != 0 && ae[i+2] % 2 != 0)
+{
+temp = i;
+key = true;
+break;
+}
+}
+if(key == true)
+{
+del(temp);
+n--;
+check();
+}
+else return;
+}
+int main()
+{
+int i;
+cin>>n;
+ae = new int[n];
+for(i = 0;i<n;i++)
+{
+cin >> ae[i];
+}
+check();
+for(i = 0;i<n;i++)
+{
+cout<<ae[i]<<" ";
+}
+return 0;
+}
