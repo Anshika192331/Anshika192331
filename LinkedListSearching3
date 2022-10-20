@@ -1,0 +1,60 @@
+Q-Surbhi’s birthday is on September 1,2022 and she wants to buy a pair of shoe. As she is very
+excited for her special day so she decided for early shopping. That’s why, she went to Mall
+and selected best 5 pair of shoe but there is problem is with financial condition so she
+selected that pair who is having minimum cost? Example 1. 23 45 67 100 2 2
+Ans-#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <bits/stdc++.h>
+using namespace std;
+struct Node {
+int data;
+struct Node* next;
+};
+int largestElement(struct Node* head)
+{
+int max = INT_MIN;
+while (head != NULL) {
+if (max < head->data)
+max = head->data;
+head = head->next;
+}
+return max;
+}
+int smallestElement(struct Node* head)
+{
+int min = INT_MAX;
+while (head != NULL) {
+if (min > head->data)
+min = head->data;
+head = head->next;
+}
+return min;
+}
+void push(struct Node** head, int data)
+{
+struct Node* newNode =
+(struct Node*)malloc(sizeof(struct Node));
+// Assign the data into newNode. newNode->data = data;
+// newNode->next assign the address of
+// head node. newNode->next = (*head);
+// newNode become the headNode. (*head) = newNode;
+}
+// Driver program to test the functions
+int main()
+{
+int arr[5];
+struct Node* head = NULL;
+for(int i=0;i<5;i++){
+cin>>arr[i];
+}
+push(&head, arr[0]);
+push(&head, arr[1]);
+push(&head, arr[2]);
+push(&head, arr[3]);
+push(&head, arr[4]);
+cout << smallestElement(head) << endl;
+return 0;
+}
