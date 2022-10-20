@@ -1,0 +1,28 @@
+Q-Akash got a new coin game. In the coin game, Akash will only win the game if the total count
+is 56. Each coin will have value inscribed. Write a programming solution, to help Akash in
+counting total value of coins at the end of the game. Coin Game is played N times. 
+Note: Player will have exactly K coin at the end of the game.
+Ans-#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main() {
+int i,n;
+cin>>n;
+int a[7];
+for(i=0;i<n;i++)
+{
+int sum=0;
+for(int j=0;j<7;j++)
+{
+cin>>a[j];
+sum=sum+a[j];
+}
+if(sum==56)
+cout<<1<<endl;
+else
+cout<<0<<endl;
+}
+}
