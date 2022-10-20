@@ -1,0 +1,71 @@
+Q-A linked list is used to store Roll Numbers of N students. Priyanka want to check that
+whether data is stored in palindrome format or not. Write a program to help the priyanka
+which will provide result in 'Yes' or 'No' depending on the data stored in list is in palindrome
+format.
+Ans-#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+string make_palindrome(int num)
+{
+string str=to_string(num);
+string new_str;
+int n=str.length();
+for (int i=n-1; i>=0; i--)
+{
+new_str+=str[i];
+}
+// cout<<new_str;
+return new_str;
+}
+int main() {
+/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+int n;
+cin>>n;
+if (!(n>=5 and n<15))
+{
+cout<<"Invalid Input";
+return 0;
+}
+int arr[n];
+for (int i=0; i<n; i++)
+{
+cin>>arr[i];
+}
+int mid, j_trav;
+if (n%2==0)
+{
+mid=n/2;
+j_trav=mid;
+}
+else{
+mid=(n+1)/2;
+j_trav=mid-1;
+}
+int possible=1;
+for (int i=0; i<mid; i++)
+{
+for (int j=n-1; j>=j_trav; j--)
+{
+if (!(make_palindrome(arr[i])==to_string(arr[j])))
+{
+possible=0;
+break;
+}
+i++;
+}
+if (!possible)
+{
+break;
+}
+}
+if (possible)
+{
+cout<<"Yes";
+return 0;
+}
+cout<<"No";
+return 0;
+}
