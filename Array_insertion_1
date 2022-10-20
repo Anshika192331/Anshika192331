@@ -1,0 +1,39 @@
+Q-Suppose You are having 13 playing cards of Heart and among these card you have to pick n
+cards in sorted order. Your task is to pick another card from the remaining and insert it in
+proper position of the previously sorted array
+example if you have picked 5 cards in sorted order 4 6 8 9 12 and then you pick next card 7
+you have to insert the card 7 in its sorted position.
+Ans-#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main(){
+int *p;
+int n;
+cin>>n;
+p=new int[n+1];
+for(int i=0;i<n;i++){
+cin>>p[i];
+}
+int x;
+cin>>x;
+int y;
+for (int i=n-1; i>=0; i--){
+if (p[i] < x) {
+y = (i+1);
+break;
+}
+else {
+y = 0;
+}
+}
+for(int i=n-1;i>=y;i--){
+p[i+1]=p[i];// shifting right side
+}
+p[y]=x;
+for(int i=0;i<n+1;i++){
+cout<<p[i]<<" ";
+}
+}
