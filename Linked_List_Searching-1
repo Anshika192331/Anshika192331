@@ -1,0 +1,60 @@
+Q-An IT company named as Cloudo_Tech is maintaining the records of its employees using a
+linked list where the following details of employees are maintained:
+1. Name
+2. Employee ID
+3. Salary
+The company management is looking for an interface where they can search the details of
+any employee using the Employee ID. You have to implement the solution for the same in
+the following function:
+void search_employee(int emp_id)
+Ans-#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+struct Employee
+{
+string emp_name;
+int salary;
+int emp_id;
+Employee *next;
+};
+Employee *Cloudo_Tech = NULL;
+void add_employee()
+{
+//Creating Employee
+Employee *emp = new Employee;
+cin>>emp->emp_name;
+cin>>emp->emp_id;
+cin>>emp->salary;
+//Inserting Employee in the beginning of the list
+emp->next = Cloudo_Tech;
+Cloudo_Tech = emp;
+}
+void search_employee(int id)
+{
+Employee *p= Cloudo_Tech;
+int yes=0;
+while(p!=NULL){
+if(p->emp_id == id){
+cout<<p->emp_name<<" "<<p->salary;
+yes=1;
+}
+p=p->next;
+}
+if(yes==0){
+cout<<"Employee does not exist";
+}
+}
+int main() {
+/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+int n;
+cin>>n; //Reading number of employees
+for(int i=0; i<n; i++) //adding employees in the list
+add_employee();
+int item;
+cin>>item;
+search_employee(item);
+return 0;
+}
