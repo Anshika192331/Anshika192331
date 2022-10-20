@@ -1,0 +1,58 @@
+Q-Write a program to find the sum of odd nodes and even node from a linked list.
+Ans-#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+struct node
+{
+int data;
+node *link;
+};
+node *start = NULL;
+node *last = NULL;
+void insert(){
+node *nd =new node;
+cin>>nd->data;
+if(start == NULL)
+{
+nd->link = start;
+start =nd;
+last =nd;
+}
+else{
+nd->link = NULL;
+last->link = nd;
+last = nd;
+}
+}
+int evenT=0;
+int oddT=0;
+void search_sums(){
+node *p=start;
+while(p != NULL){
+if((p->data)%2==0){
+evenT=p->data+evenT;
+}
+else{
+oddT=p->data+oddT;
+}
+p=p->link;
+}
+cout<<oddT<<" "<<evenT;
+}
+int main() {
+int n;
+cin>>n;
+if(n>=0 && n<=7){
+for(int i=0 ; i<n; i++){
+insert();
+}
+search_sums();
+}
+else{
+cout<<"Invalid Range";
+}
+return 0;
+}
